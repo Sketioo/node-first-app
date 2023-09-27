@@ -1,5 +1,14 @@
-const http = require("http");
+const express = require("express");
+const app = express();
 
-const server = http.createServer();
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
 
-server.listen(3000);
+app.use(express.urlencoded({extended: true}));
+
+app.use(adminRoutes)
+app.use(shopRoutes)
+
+app.listen(3000, () => {
+  console.log('listening on port 3000')
+})
