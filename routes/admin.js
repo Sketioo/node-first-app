@@ -5,14 +5,14 @@ const router = express.Router();
 router.get('/add-users',(req, res, next) => {
   console.log('Second response')
   res.send(`
-    <form action="/users" method="post">
+    <form action="/admin/add-users" method="post">
       <input type="text" name="username">
       <button>Submit</button>
     </form>
   `)
 })
 
-router.post('/users', (req, res,) => {
+router.post('/add-users', (req, res,) => {
   console.log(req.body)
   res.redirect('/')
 })
